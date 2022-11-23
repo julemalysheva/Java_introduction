@@ -96,7 +96,7 @@ public class Task03Sem1HW {
 
     public static void main(String[] args) {
         Scanner iScanner = new Scanner(System.in);
-        System.out.print("\nВведите строку выражения: ");
+        System.out.print("\nВведите строку выражения,\nнапример, 25.5-9/3+7*2.45; 45/9 и т.д.: ");
         String expString = iScanner.nextLine();
         System.out.printf("Считаем %s\n", expString);
         iScanner.close();
