@@ -5,7 +5,8 @@ package sem1HW;
  * Требуется восстановить выражение до верного равенства. 
  * Предложить хотя бы одно решение или сообщить, что его нет. */
 
-//в моем варианте работает, только если в числе один знак ?, не больше
+//в моем варианте работает, только если в числе один знак ?, не больше, или отсутствует совсем
+//предположила, что по условию после знака = всегда какое-то число, без ?
 
 import java.util.Scanner;
 
@@ -22,7 +23,6 @@ public class Task04Sem1HW {
         if (result) {
             try {
                 String[] arrStr = primer.split("=");
-                // System.out.println(String.join("И", arrStr));
                 int res = Integer.parseInt(arrStr[1].trim());
                 String[] arrNum = arrStr[0].split("\\s*(\\+)\\s*");
                 System.out.println("res:" + res + " Числа: " + String.join(" ", arrNum));
@@ -30,12 +30,15 @@ public class Task04Sem1HW {
 //если число начинается на ? - значит этот разряд предполагается, и он не может быть равен нулю
                 int start1 = arrNum[0].startsWith("?") ? 1 : 0;
                 int start2 = arrNum[1].startsWith("?") ? 1 : 0;
-                for (int i = start1; i < 10; i++) {
+                //добавляю условие числа прохождения цикла в зависимости от содержания ? в числе
+                int end1 = (arrNum[0].indexOf("?")==-1)? start1+1 : 10;
+                int end2 = (arrNum[1].indexOf("?")==-1)? start2+1 : 10;
+
+                for (int i = start1; i < end1; i++) {
                     int num1 = Integer.parseInt(arrNum[0].trim().replace("?", String.format("%d", i)));
-                    // System.out.println("\nnum1 = " + num1);
-                    for (int j = start2; j < 10; j++) {
+                    
+                    for (int j = start2; j < end2; j++) {
                         int num2 = Integer.parseInt(arrNum[1].trim().replace("?", String.format("%d", j)));
-                        // System.out.println("num2 = " + num2);
 
                         if (num1 + num2 == res) {
                             checkEx = true;
