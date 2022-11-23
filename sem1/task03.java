@@ -16,7 +16,7 @@ public class task03 {
     }
 
     public static void main(String[] args) {
-        //String[] arrStr = new String[]{"торской","соре","морюшко"};
+        //String[] arrStr = new String[]{"море","камень","песок"};
         //String[] arrStr = new String[]{"морской","море","морюшко"};
         String[] arrStr = new String[]{"весенний","весна","веснушки","веселиться"};
         //получаем длину мин.строки - для лимита в цикле, т.к. префикс не может быть больше
