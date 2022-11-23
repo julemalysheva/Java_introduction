@@ -16,13 +16,13 @@ public class task03 {
     }
 
     public static void main(String[] args) {
-        // String[] arrStr = new String[]{"торской","соре","морюшко"};
-        // String[] arrStr = new String[]{"морской","море","морюшко"};
+        //String[] arrStr = new String[]{"торской","соре","морюшко"};
+        //String[] arrStr = new String[]{"морской","море","морюшко"};
         String[] arrStr = new String[]{"весенний","весна","веснушки","веселиться"};
         //получаем длину мин.строки - для лимита в цикле, т.к. префикс не может быть больше
         int limit = minStrLength(arrStr);
         System.out.println("limit: "+ limit);
-        String temp = "",last = "",res = "";
+        String temp = "",last = "";
         Boolean checkRes = false;
 
         for (int i=0; i<limit;i++){
@@ -34,17 +34,17 @@ public class task03 {
             for (String string : arrStr) {
                 if (! string.substring(0, i+1).equals(temp)) {
                     System.out.println("temp "+temp + "\nвыходим, подстроки не равны");
-                    res = last; //передаем в результат предыдущую подстроку
                     checkRes = true;
-                    System.out.println("res: "+ res);
+                    System.out.println("result: "+ last);
                     break;
                 }
             }  
-            last = temp;
             // выходим из внешнего цикла, если нашли результат
             if (checkRes) break;
+
+            last = temp;
         }
 
-        System.out.println("Самая длинная строка общего префикса: "+ res);
+        System.out.println("Самая длинная строка общего префикса: "+ last);
     }
 }
