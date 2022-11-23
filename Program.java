@@ -400,17 +400,55 @@
 //         fr.close();
 //     } }
 
-import java.io.*;
+// import java.io.*;
 
-public class Program {
-// для каждого типа записи и чтения используется свой опр.класс
-// также упрощаем обработку ошибки throws Exception 
-    public static void main(String[] args) throws Exception {
-        BufferedReader br = new BufferedReader(new FileReader("file.txt"));
-        String str;
-        while ((str = br.readLine()) != null) {
-            System.out.printf("== %s ==\n", str);
-        }
-        br.close();
-    }
-}
+// public class Program {
+// // для каждого типа записи и чтения используется свой опр.класс
+// // также упрощаем обработку ошибки throws Exception 
+//     public static void main(String[] args) throws Exception {
+//         BufferedReader br = new BufferedReader(new FileReader("file.txt"));
+//         String str;
+//         while ((str = br.readLine()) != null) {
+//             System.out.printf("== %s ==\n", str);
+//         }
+//         br.close();
+//     }
+// }
+
+//можно попробовать использовать стек, как я делала с c# или как в примере, но он не корректный
+// public class Program {
+// import java.util.Stack;
+// import java.util.Scanner;
+
+
+// public static void main(String[] args) {
+//     Scanner iscanner = new Scanner(System.in);
+//     String exp[] = iscanner.nextLine().split(" ");
+//     iscanner.close();
+//     Stack<String> ops = new Stack<String>();
+//     Stack<Double> vals = new Stack<Double>();
+
+//     for (int i = 0; i < exp.length; i++) {
+//         String s = exp[i];
+//         if (s.equals("(")) {
+//         } else if (s.equals("+") || s.equals("*")) {
+//             ops.push(s);
+//         } else if (s.equals(")")) {
+//             getComp(ops, vals);
+//         } else {
+//             vals.push(Double.parseDouble(s));
+//         }
+//     }
+//     getComp(ops, vals);
+//     System.out.println(vals.pop());
+// }
+
+// private static void getComp(Stack<String> ops, Stack<Double> vals) {
+//     String op = ops.pop();
+//     if (op.equals("+")) {
+//         vals.push(vals.pop() + vals.pop());
+//     } else if (op.equals("*")) {
+//         vals.push(vals.pop() * vals.pop());
+//     }
+// }
+// }
