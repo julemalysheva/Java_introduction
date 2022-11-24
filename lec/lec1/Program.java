@@ -1,3 +1,4 @@
+package lec.lec1;
 // /**
 //  * program
 //  */
