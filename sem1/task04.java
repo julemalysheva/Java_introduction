@@ -9,7 +9,7 @@ import java.util.Arrays;
  */
 public class task04 {
     public static void main(String[] args) {
-        int[] arr = new int[]{3,2,3,2,3};
+        int[] arr = new int[]{1,2,3,4,3,6,7,8};
         int num = 3;
         int temp;
         for (int i = 0; i < arr.length-1; i++) {
