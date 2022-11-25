@@ -1,0 +1,14 @@
+.git
+.gitignore
+.idea
+file.txt
+file1.txt
+files
+Java_introduction.iml
+lec
+log.xml
+out
+sem1
+sem1HW
+sem2
+test.bin
