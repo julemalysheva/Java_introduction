@@ -49,14 +49,16 @@ public class task05Sem2 {
         try {
             String pathProject = System.getProperty("user.dir");
             String pathFile = pathProject.concat("/file.txt");
-            FileWriter f5 = new FileWriter(pathFile);
-            if (listFolder.length>0){
-                for (String item: listFolder) {
-                    f5.write(item+"\n");
-                }
+            try (FileWriter f5 = new FileWriter(pathFile)) {
+                if (listFolder.length>0){
+                    for (String item: listFolder) {
+                        f5.write(item+"\n");
+                    }
+                    myLogger("файл записан");
+                } else System.out.println("В папке ничего не обнаружено");
                 f5.flush();
-                myLogger("файл записан");
-            } else System.out.println("В папке ничего не обнаружено");
+            }
+
         } catch (Exception e){
             myLogger("Ошибка записи в файл");
             e.printStackTrace();

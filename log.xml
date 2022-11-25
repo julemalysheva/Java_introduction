@@ -2,9 +2,9 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-11-25T16:25:04.504288700Z</date>
-  <millis>1669393504504</millis>
-  <nanos>288700</nanos>
+  <date>2022-11-25T17:36:23.412028200Z</date>
+  <millis>1669397783412</millis>
+  <nanos>28200</nanos>
   <sequence>0</sequence>
   <logger>sem2.task05Sem2</logger>
   <level>INFO</level>
