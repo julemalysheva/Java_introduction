@@ -2,27 +2,15 @@
 <!DOCTYPE log SYSTEM "logger.dtd">
 <log>
 <record>
-  <date>2022-11-24T15:46:38.263187Z</date>
-  <millis>1669304798263</millis>
-  <nanos>187000</nanos>
+  <date>2022-11-25T16:25:04.504288700Z</date>
+  <millis>1669393504504</millis>
+  <nanos>288700</nanos>
   <sequence>0</sequence>
-  <logger>lec.lec2.Ex005_Logger_my</logger>
-  <level>WARNING</level>
-  <class>lec.lec2.Ex005_Logger_my</class>
-  <method>main</method>
-  <thread>1</thread>
-  <message>Тестовое логирование 1</message>
-</record>
-<record>
-  <date>2022-11-24T15:46:38.362192600Z</date>
-  <millis>1669304798362</millis>
-  <nanos>192600</nanos>
-  <sequence>1</sequence>
-  <logger>lec.lec2.Ex005_Logger_my</logger>
+  <logger>sem2.task05Sem2</logger>
   <level>INFO</level>
-  <class>lec.lec2.Ex005_Logger_my</class>
-  <method>main</method>
+  <class>sem2.task05Sem2</class>
+  <method>myLogger</method>
   <thread>1</thread>
-  <message>Тестовое логирование 2</message>
+  <message>файл записан</message>
 </record>
 </log>

@@ -55,6 +55,7 @@ public class task05Sem2 {
                     f5.write(item+"\n");
                 }
                 f5.flush();
+                myLogger("файл записан");
             } else System.out.println("В папке ничего не обнаружено");
         } catch (Exception e){
             myLogger("Ошибка записи в файл");
