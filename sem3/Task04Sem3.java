@@ -13,7 +13,6 @@ package sem3;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Collections;
 
 /**
  * Task04Sem3
