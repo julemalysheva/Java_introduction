@@ -26,7 +26,7 @@ public class Task04Sem3 {
        listBook.add(new ArrayList<>(List.of("поэзия", "Бородино", "Парус", "Евгений Онегин")));
        listBook.add(new ArrayList<>(List.of("научная", "История человечества", "История времени", "Физика невозможного")));
 
-       for(ArrayList obj: listBook){
+       for(ArrayList<String> obj: listBook){
         ArrayList<String> temp = obj; 
         for(String el : temp){
             System.out.print(el + " "); 
