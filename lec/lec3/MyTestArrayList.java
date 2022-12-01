@@ -1,4 +1,4 @@
-// package lec.lec3;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Iterator;
