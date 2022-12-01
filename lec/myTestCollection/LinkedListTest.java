@@ -166,7 +166,7 @@ Java 8 forEach()и лямбда-выражение.
         humanSpeciesIterator.forEachRemaining(speciesName -> {
             System.out.println(speciesName);
         });
-
+//нисходящий итератор()
         System.out.println("\n=== Iterate over a LinkedList using descendingIterator() ===");
         Iterator<String> descendingHumanSpeciesIterator = humanSpecies.descendingIterator();
         while (descendingHumanSpeciesIterator.hasNext()) {
@@ -176,8 +176,8 @@ Java 8 forEach()и лямбда-выражение.
 
 
         System.out.println("\n=== Iterate over a LinkedList using listIterator() ===");
-        // ListIterator can be used to iterate over the LinkedList in both forward and backward directions
-        // In this example, we start from the end of the list and traverse backwards
+//  ListIterator можно использовать для перебора связанного списка как в прямом, так и в обратном направлениях
+        // В этом примере мы начинаем с конца списка и проходим в обратном направлении
         ListIterator<String> humanSpeciesListIterator = humanSpecies.listIterator(humanSpecies.size());
         while (humanSpeciesListIterator.hasPrevious()) {
             String speciesName = humanSpeciesListIterator.previous();
