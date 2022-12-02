@@ -2,6 +2,7 @@ package sem1HW;
 
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.FileHandler;
@@ -18,7 +19,14 @@ import java.util.logging.SimpleFormatter;
 
 /*По заданию семинара 2 добавлено логирование*/
 
+/*Семинар 4 -(*). В калькулятор добавьте возможность отменить последнюю операцию.*/
+
 public class Task03Sem1HW {
+    static Scanner iScanner = new Scanner(System.in);
+
+    //для хранения каждого выполняемого действия и его результата
+    static LinkedList<String> stringLinkedList = new LinkedList<>();
+    static LinkedList<Double> doubleLinkedList = new LinkedList<>();
 
     // парсим строку и получаем список чисел типа Double
     static List<Double> strToArray(String str) {
@@ -60,6 +68,11 @@ public class Task03Sem1HW {
                 res = x * y;
                 break;
         }
+        //каждую операцию записываем в список, результат также в отдельный список
+        stringLinkedList.add(String.format("%.2f %s %.2f",x , math_operation, y));
+        doubleLinkedList.add(res);
+        myLog(String.format("Считаем: %s = %.2f",stringLinkedList.getLast(),res),2);
+
         return res;
     }
 
@@ -123,12 +136,42 @@ public class Task03Sem1HW {
         }
     }
 
+    static void requestCancelOperation(){
+        boolean exit = false;
+        while ((!exit) && (!stringLinkedList.isEmpty()))  {
+            System.out.println("Отменить последнюю операцию? Введите: Да/Нет");
+            String input = iScanner.nextLine();
+
+            if (input.equals("Нет")) exit=true;
+            else if (input.equals("Да")) {
+                if(!stringLinkedList.isEmpty()){
+                    String op = stringLinkedList.removeLast();
+                    Double res = doubleLinkedList.removeLast();
+                    myLog(String.format("Отмена операции: %s = %.2f\n",op, res),2);
+                    System.out.printf("Отмена операции: %s = %.2f\n",op, res);
+                    if (stringLinkedList.isEmpty()) {
+                        myLog("Список операций пуст",2);
+                        System.out.println("Список операций пуст");
+                    }
+                    else {
+                        String current = String.format("Текущий результат: " + stringLinkedList.getLast() + " = " + doubleLinkedList.getLast());
+                        myLog(current, 2);
+                        System.out.println(current);
+                    }
+                }
+                else {
+                    System.out.println("Все операции уже отменены");
+                    exit=true;
+                }
+            }
+            else System.out.println("Повторите ввод - я вас не понял))");
+        }
+    }
+
     public static void main(String[] args) {
-        Scanner iScanner = new Scanner(System.in);
         System.out.print("\nВведите строку выражения,\nнапример, 25.5-9/3+7*2.45; 45/9 и т.д.: ");
         String expString = iScanner.nextLine();
         myLog(String.format("Пользователь ввел выражение: %s", expString),2);
-        iScanner.close();
 
         try {
             // вывожу значения для проверки
@@ -141,11 +184,19 @@ public class Task03Sem1HW {
             myLog(String.format("Результат вычисления = %.2f", resCalc),2);
             System.out.printf("Результат вычисления:\n%s = %.2f\n", expString, resCalc);
 
+            System.out.println(stringLinkedList);
+            System.out.println(doubleLinkedList);
+
+
         } catch (Exception e) {
             myLog(String.format("Некорректное выражение, ошибка: %s",e.getMessage()),1);
             System.out.println("Некорректное выражение");
             System.err.println(e.getMessage());
         }
+
+        //если есть записи операций, предлагаем отменить, вызывая метод:
+            requestCancelOperation();
+        iScanner.close();
 
     }
 
