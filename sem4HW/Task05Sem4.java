@@ -52,7 +52,9 @@ public class Task05Sem4 {
                     } //скобка ( остается в конце, ее просто удаляем
                     stackOp.removeLast();//если ее нет, будет ошибка в выражении
             }   else if (mapPriorities.containsKey(ch)) {
-                    if ((stackOp.isEmpty()) || (mapPriorities.get(stackOp.getLast()) < mapPriorities.get(ch))) {
+                    if (ch == '(') { //т.е.если это откр. скобка '('-mapPriorities.get(ch) == 1
+                        stackOp.add(ch);
+                    } else if ((stackOp.isEmpty()) || (mapPriorities.get(stackOp.getLast()) < mapPriorities.get(ch))) {
                         stackOp.add(ch);
                     } else if ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
         //                пока выполн.условие - перекладываем знаки из стека в результат
@@ -60,8 +62,6 @@ public class Task05Sem4 {
                             list.add(String.valueOf(stackOp.removeLast()));
                         }
                         //затем кладем в стек текущий
-                        stackOp.add(ch);
-                    } else if (ch == '(') { //т.е.если это откр. скобка '('-mapPriorities.get(ch) == 1
                         stackOp.add(ch);
                     }
             }
