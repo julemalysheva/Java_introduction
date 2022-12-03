@@ -36,53 +36,42 @@ public class Task05Sem4 {
         mapPriorities.put('*',3);
         mapPriorities.put('/',3);
        // System.out.println(mapPriorities);
-        //можно задать вспом.список операций - для проверки вхождения символов в него
-        //или же лучше map, где символ будет ключом, тогда можно проверять на содержание ключа
-        //а значение приоритет операции для проверки правила сборки результирующего списка
         StringBuilder sb = new StringBuilder();
-        for (char ch: chars) {
-            if(isInteger(String.valueOf(ch))){ //или создавать каждый раз? - проверить
+        for (int i = 0; i < chars.length; i++) {
+            char ch = chars[i];
+            if (isInteger(String.valueOf(ch))) {
                 sb.append(ch);
-                //пробую добавить последнее - скорее всего переделать под for i
-                list.add(String.valueOf(sb));
-                sb.delete(0,sb.length());
-            }
-            else {
-//                if (!sb.isEmpty()) {
-//                    list.add(String.valueOf(sb));
-//                    sb.delete(0,sb.length());
-//                }
-                if ((stackOp.isEmpty()) || (mapPriorities.get(stackOp.getLast()) < mapPriorities.get(ch))) {
-                    stackOp.add(ch);
-                } else if ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
-                //или вызывать здесь отдельно др. метод для этого?
-                    while ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
-                        list.add(String.valueOf(stackOp.removeLast()));
-                    }
-                    //в цикле выше, пока выполн.условие - перекладываем знаки из стека в результат,
-                    //затем кладем в стек текущий
-                    stackOp.add(ch);
+                //если конец массива или след.-не число, добавляем в результир.список
+                if (i == chars.length-1 || !isInteger(String.valueOf(chars[i+1]))){
+                    list.add(String.valueOf(sb));
+                    sb.delete(0, sb.length());
                 }
-                else if (mapPriorities.get(ch)==1){ //т.е. это откр. скобка
-                    stackOp.add(ch);
-                } else if (ch == ')') { //можно добавить проверку наличия '(', иначе вызвать исключение
-                    while (stackOp.getLast()!='('){
+            }   else if (ch == ')') { //можно добавить проверку наличия '(', иначе вызвать исключение
+                    while (!stackOp.isEmpty() && stackOp.getLast() != '(') {
                         list.add(String.valueOf(stackOp.removeLast()));
                     } //скобка ( остается в конце, ее просто удаляем
                     stackOp.removeLast();//если ее нет, будет ошибка в выражении
-                }
+            }   else if (mapPriorities.containsKey(ch)) {
+                    if ((stackOp.isEmpty()) || (mapPriorities.get(stackOp.getLast()) < mapPriorities.get(ch))) {
+                        stackOp.add(ch);
+                    } else if ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
+        //                пока выполн.условие - перекладываем знаки из стека в результат
+                        while ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
+                            list.add(String.valueOf(stackOp.removeLast()));
+                        }
+                        //затем кладем в стек текущий
+                        stackOp.add(ch);
+                    } else if (ch == '(') { //т.е.если это откр. скобка '('-mapPriorities.get(ch) == 1
+                        stackOp.add(ch);
+                    }
             }
+            //например, если есть пробелы в выражении и пр.-пропускать
+            else continue;
         }
+        //все, что осталось в стеке - переносим в результир.список
         while (!stackOp.isEmpty()){
             list.add(String.valueOf(stackOp.removeLast()));
         }
-        //добавляем крайнее собранное число - проверить логику конвертации
-        //!!!так не пойдет - нужно внутри проверять на конец строки
-        if (!sb.isEmpty()) {
-            list.add(String.valueOf(sb));
-//            sb.delete(0,sb.length());
-        }
-
 
         return list;
     }
