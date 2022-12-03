@@ -12,8 +12,12 @@ public class Task05Sem4 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку выражения: ");
         String exp = scanner.nextLine();
-        System.out.println("Выражение в ОПЗ: " + convertingExpToOPZ(exp));
-        System.out.println("Результат вычисления: " + calcOpzExp(convertingExpToOPZ(exp)));
+        try {
+            System.out.println("Выражение в ОПЗ: " + convertingExpToOPZ(exp));
+            System.out.println("Результат вычисления: " + calcOpzExp(convertingExpToOPZ(exp)));
+        } catch (Exception e){
+            System.err.println(e.getMessage());
+        }
     }
 
     static boolean isDigit(String str) {
@@ -25,7 +29,7 @@ public class Task05Sem4 {
         }
     }
 
-    static ArrayList<String> convertingExpToOPZ(String str){
+    static ArrayList<String> convertingExpToOPZ(String str) throws Exception {
         ArrayList<String> list = new ArrayList<>(str.length()); //результирующий список
         LinkedList<Character> stackOp = new LinkedList<>(); //стек для знаков операций
         char[] chars = str.toCharArray();
@@ -62,12 +66,12 @@ public class Task05Sem4 {
                         while ((!stackOp.isEmpty()) && (mapPriorities.get(stackOp.getLast()) >= mapPriorities.get(ch))) {
                             list.add(String.valueOf(stackOp.removeLast()));
                         }
-                        //затем кладем в стек текущий
+                        //затем кладем в стек текущий элемент
                         stackOp.add(ch);
                     }
             }
-            //например, если есть пробелы в выражении и пр.-пропускать
-            else continue;//можно вызвать исключение
+            //например, если есть пробелы в выражении и пр.- можно пропускать или вызвать исключение
+            else throw new Exception("Некорректные символы или пробелы в выражении");
         }
         //все, что осталось в стеке - переносим в результир.список
         while (!stackOp.isEmpty()){
@@ -77,7 +81,7 @@ public class Task05Sem4 {
         return list;
     }
 
-    static double calcOpzExp(ArrayList<String> list){
+    static double calcOpzExp(ArrayList<String> list) throws Exception {
         double res;
         double tmp;
         //в данном случае использую Stack для разнообразия, хотя можно было также LinkedList
@@ -104,8 +108,10 @@ public class Task05Sem4 {
                     }
                     case "/" -> {
                         tmp = doubleStack.pop();
+                        if (tmp!=0){
                         res = doubleStack.pop() / tmp;
                         doubleStack.push(res);
+                        } else throw new Exception("Деление на --0--!");
                     }
                     default -> {
                     }
