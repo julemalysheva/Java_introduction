@@ -1,78 +1,61 @@
-нояб. 26, 2022 10:03:08 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение -- орлорппоапра
-нояб. 26, 2022 10:03:08 PM sem1HW.Task03Sem1HW myLog
-WARNING: Некорректное выражение, ошибка: For input string: "орлорппоапра"
-нояб. 26, 2022 10:03:58 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение -- 25.5-9/3+7*2.45
-нояб. 26, 2022 10:03:58 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления: = 39,65
-нояб. 26, 2022 10:05:15 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 45/0
-нояб. 26, 2022 10:05:15 PM sem1HW.Task03Sem1HW myLog
-WARNING: Деление на --0--!
-нояб. 26, 2022 10:05:15 PM sem1HW.Task03Sem1HW myLog
-WARNING: Некорректное выражение, ошибка: Деление на --0--!
-нояб. 26, 2022 10:06:37 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 25,5+6
-нояб. 26, 2022 10:06:37 PM sem1HW.Task03Sem1HW myLog
-WARNING: Некорректное выражение, ошибка: For input string: "25,5"
-нояб. 26, 2022 10:12:12 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 45/9-8*0.25
-нояб. 26, 2022 10:12:12 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили числа: [45.0, 9.0, 8.0, 0.25]
-нояб. 26, 2022 10:12:12 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили знаки: [/, -, *]
-нояб. 26, 2022 10:12:12 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления = 3,00
-нояб. 26, 2022 10:14:40 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:43:57 PM sem1HW.Task03Sem1HW myLog
+INFO: Пользователь ввел выражение: fgkjhfkg
+дек. 02, 2022 5:43:57 PM sem1HW.Task03Sem1HW myLog
+WARNING: Некорректное выражение, ошибка: For input string: "fgkjhfkg"
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
 INFO: Пользователь ввел выражение: 25.5-9/3+7*2.45
-нояб. 26, 2022 10:14:40 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
 INFO: Получили числа: [25.5, 9.0, 3.0, 7.0, 2.45]
-нояб. 26, 2022 10:14:40 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
 INFO: Получили знаки: [-, /, +, *]
-нояб. 26, 2022 10:14:40 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 9,00 / 3,00 = 3,00
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 7,00 * 2,45 = 17,15
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 25,50 - 3,00 = 22,50
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 22,50 + 17,15 = 39,65
+дек. 02, 2022 5:44:11 PM sem1HW.Task03Sem1HW myLog
 INFO: Результат вычисления = 39,65
-нояб. 26, 2022 10:18:08 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:44:28 PM sem1HW.Task03Sem1HW myLog
+INFO: Отмена операции: 22,50 + 17,15 = 39,65
+
+дек. 02, 2022 5:44:28 PM sem1HW.Task03Sem1HW myLog
+INFO: Текущий результат: 25,50 - 3,00 = 22.5
+дек. 02, 2022 5:45:06 PM sem1HW.Task03Sem1HW myLog
+INFO: Отмена операции: 25,50 - 3,00 = 22,50
+
+дек. 02, 2022 5:45:06 PM sem1HW.Task03Sem1HW myLog
+INFO: Текущий результат: 7,00 * 2,45 = 17.150000000000002
+дек. 02, 2022 5:45:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Отмена операции: 7,00 * 2,45 = 17,15
+
+дек. 02, 2022 5:45:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Текущий результат: 9,00 / 3,00 = 3.0
+дек. 02, 2022 5:45:15 PM sem1HW.Task03Sem1HW myLog
+INFO: Отмена операции: 9,00 / 3,00 = 3,00
+
+дек. 02, 2022 5:45:15 PM sem1HW.Task03Sem1HW myLog
+INFO: Список операций пуст
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
 INFO: Пользователь ввел выражение: 25.5-9/3+7*2.45
-нояб. 26, 2022 10:18:08 PM sem1HW.Task03Sem1HW myLog
-WARNING: Некорректное выражение, ошибка: For input string: "25.5-9/3+7*2.45"
-нояб. 26, 2022 10:19:58 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 25.5-9/3+7*2.45
-нояб. 26, 2022 10:19:58 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
 INFO: Получили числа: [25.5, 9.0, 3.0, 7.0, 2.45]
-нояб. 26, 2022 10:19:58 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
 INFO: Получили знаки: [-, /, +, *]
-нояб. 26, 2022 10:19:58 PM sem1HW.Task03Sem1HW myLog
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 9,00 / 3,00 = 3,00
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 7,00 * 2,45 = 17,15
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 25,50 - 3,00 = 22,50
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
+INFO: Считаем: 22,50 + 17,15 = 39,65
+дек. 02, 2022 5:48:12 PM sem1HW.Task03Sem1HW myLog
 INFO: Результат вычисления = 39,65
-нояб. 26, 2022 10:20:15 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 58*0.25-69/4.025
-нояб. 26, 2022 10:20:15 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили числа: [58.0, 0.25, 69.0, 4.025]
-нояб. 26, 2022 10:20:15 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили знаки: [*, -, /]
-нояб. 26, 2022 10:20:15 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления = -2,64
-нояб. 26, 2022 10:23:43 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 25.5-9/3+7*2.45
-нояб. 26, 2022 10:23:43 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили числа: [25.5, 9.0, 3.0, 7.0, 2.45]
-нояб. 26, 2022 10:23:43 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили знаки: [-, /, +, *]
-нояб. 26, 2022 10:23:43 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления = 39,65
-нояб. 26, 2022 10:24:24 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 25.5-9/3+7*2.45
-нояб. 26, 2022 10:24:25 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили числа: [25.5, 9.0, 3.0, 7.0, 2.45]
-нояб. 26, 2022 10:24:25 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили знаки: [-, /, +, *]
-нояб. 26, 2022 10:24:25 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления = 39,65
-нояб. 26, 2022 10:24:44 PM sem1HW.Task03Sem1HW myLog
-INFO: Пользователь ввел выражение: 25.6+4/2.56-89/4.56
-нояб. 26, 2022 10:24:44 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили числа: [25.6, 4.0, 2.56, 89.0, 4.56]
-нояб. 26, 2022 10:24:44 PM sem1HW.Task03Sem1HW myLog
-INFO: Получили знаки: [+, /, -, /]
-нояб. 26, 2022 10:24:44 PM sem1HW.Task03Sem1HW myLog
-INFO: Результат вычисления = 7,64
+дек. 02, 2022 5:48:17 PM sem1HW.Task03Sem1HW myLog
+INFO: Отмена операции: 22,50 + 17,15 = 39,65
+
+дек. 02, 2022 5:48:17 PM sem1HW.Task03Sem1HW myLog
+INFO: Текущий результат: 25,50 - 3,00 = 22.5
