@@ -12,6 +12,7 @@ public class Task05Sem4 {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите строку выражения: ");
         String exp = scanner.nextLine();
+        scanner.close();
         try {
             System.out.println("Выражение в ОПЗ: " + convertingExpToOPZ(exp));
             System.out.println("Результат вычисления: " + calcOpzExp(convertingExpToOPZ(exp)));
