@@ -41,7 +41,7 @@ public class BaseHero {
         }
         // else { die(); }
     }
-
+//полиморфизм упростил систему взаимодействия м/д персонажами
     public void Attack(BaseHero target) {
         int damage = BaseHero.r.nextInt(10, 20);
         target.GetDamage(damage);

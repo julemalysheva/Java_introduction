@@ -11,6 +11,7 @@ public class Program {
         Priest hero3 = new Priest();
         System.out.println(hero3.getInfo());
 
+        //3 принимает удар, 2 атакует и т.д.
         hero3.GetDamage(hero2.Attack());
         hero3.GetDamage(hero3.Attack());
         System.out.println(hero3.getInfo());

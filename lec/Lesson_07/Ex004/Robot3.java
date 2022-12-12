@@ -3,14 +3,14 @@ package lec.Lesson_07.Ex004;
 import java.util.ArrayList;
 
 public class Robot3 {
-
+//состояние
     enum State {
         On, Off
     }
-
+//статические поля
     private static int defaultIndex;
     private static ArrayList<String> names;
-
+//инициализация статит.полей
     static {
         defaultIndex = 1;
         names = new ArrayList<String>();
@@ -30,6 +30,7 @@ public class Robot3 {
      * @param name  Имя робота !Не должно начинаться с цифры
      * @param level Уровень робота
      */
+    //конструктор
     private Robot3(String name, int level) {
         System.out.println(Character.isDigit(name.charAt(0)));
         if ((name.isEmpty()
@@ -43,7 +44,7 @@ public class Robot3 {
             this.name = name;
         }
 
-        Robot3.names.add(this.name);
+        Robot3.names.add(this.name);//добавим в список имен
         this.level = level;
         this.state = State.Off;
 

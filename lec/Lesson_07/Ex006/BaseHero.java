@@ -1,7 +1,7 @@
 package lec.Lesson_07.Ex006;
 
 import java.util.Random;
-
+//все что в родителе помечено модификатором public и protected - будет доступно дочерним
 public class BaseHero {
     protected static int number;
     protected static Random r;
