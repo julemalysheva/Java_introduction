@@ -42,13 +42,13 @@ public class Program {
 
         List<Person> personList = new ArrayList<>(List.of(person1, person2, person3, person4, person5, person6,
                 person7, person8, person9));
-        System.out.println("Смотрим детей");
+        System.out.println("-------------Смотрим детей--------------------");
         for (Person person: personList) {
             System.out.println("---------------");
             KinshipResearch.printChildren(person);
         }
         System.out.println("---------------");
-        System.out.println("Смотрим все текущие связи");
+        System.out.println("-------------Смотрим все текущие связи-------------------");
         for (Person person: personList) {
             System.out.println("---------------");
             KinshipResearch.printAllRelatives(person);

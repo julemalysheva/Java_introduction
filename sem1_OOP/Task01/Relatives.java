@@ -25,58 +25,58 @@ public class Relatives {
 
     private void setBrother() {
         if (personFirst instanceof Man){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.Brother);
+            personSecond.getCommunications().put(personFirst, RelationDegree.Brother);
         } else if (personFirst instanceof Woman){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.Sister);
+            personSecond.getCommunications().put(personFirst, RelationDegree.Sister);
             }
         if (personSecond instanceof Man) {
-            personFirst.getCommunications().put(personSecond, Person.RelationDegree.Brother);
+            personFirst.getCommunications().put(personSecond, RelationDegree.Brother);
         }
         else if (personSecond instanceof Woman) {
-            personFirst.getCommunications().put(personSecond, Person.RelationDegree.Sister);
+            personFirst.getCommunications().put(personSecond, RelationDegree.Sister);
         }
     }
 
     private void setSpouse() {
         if ((personFirst instanceof Man && personSecond instanceof Woman) ||
         (personFirst instanceof Woman && personSecond instanceof Man)){
-        personFirst.getCommunications().put(personSecond, Person.RelationDegree.Spouse);
-        personSecond.getCommunications().put(personFirst, Person.RelationDegree.Spouse);
+        personFirst.getCommunications().put(personSecond, RelationDegree.Spouse);
+        personSecond.getCommunications().put(personFirst, RelationDegree.Spouse);
         }
         else System.out.println(personFirst + "и " + personSecond + "не могут быть супругами");
     }
 
     private void setGrandparent() {
-        personFirst.getCommunications().put(personSecond, Person.RelationDegree.GrandChild);
+        personFirst.getCommunications().put(personSecond, RelationDegree.GrandChild);
 
         if (this.personFirst instanceof Man){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.GrandFather);
+            personSecond.getCommunications().put(personFirst, RelationDegree.GrandFather);
         }
         else if (this.personFirst instanceof Woman){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.GrandMother);
+            personSecond.getCommunications().put(personFirst, RelationDegree.GrandMother);
         }
 
     }
 
     private void setChild() {
-        personSecond.getCommunications().put(personFirst, Person.RelationDegree.Children);
+        personSecond.getCommunications().put(personFirst, RelationDegree.Children);
         if (this.personSecond instanceof Man){
-            personFirst.getCommunications().put(personSecond, Person.RelationDegree.Father);
+            personFirst.getCommunications().put(personSecond, RelationDegree.Father);
         }
         else if (this.personSecond instanceof Woman){
-            personFirst.getCommunications().put(personSecond, Person.RelationDegree.Mother);
+            personFirst.getCommunications().put(personSecond, RelationDegree.Mother);
         }
 
     }
 
     private void setParent(){
         if (this.personFirst instanceof Man){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.Father);
+            personSecond.getCommunications().put(personFirst, RelationDegree.Father);
         }
         else if (this.personFirst instanceof Woman){
-            personSecond.getCommunications().put(personFirst, Person.RelationDegree.Mother);
+            personSecond.getCommunications().put(personFirst, RelationDegree.Mother);
         }
-        personFirst.getCommunications().put(personSecond, Person.RelationDegree.Children);
+        personFirst.getCommunications().put(personSecond, RelationDegree.Children);
     }
 
     public Person getPersonFirst() {

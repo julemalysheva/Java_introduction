@@ -5,7 +5,7 @@ public class KinshipResearch {
         System.out.println("Дети " + person + ": ");
         int count = 0;
         for (var item: person.getCommunications().entrySet()) {
-            if (item.getValue().equals(Person.RelationDegree.Children)){
+            if (item.getValue().equals(RelationDegree.Children)){
                 System.out.println(item.getValue() + ": " + item.getKey());
                 count++;
             }

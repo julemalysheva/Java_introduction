@@ -8,9 +8,11 @@ public class Person {
     private String surname;
     private int birthYear;
     private final Map<Person, RelationDegree> communications;
-    public enum RelationDegree{
-        Children, Mother, Father, GrandMother, GrandFather, Sister, Brother, Spouse, GrandChild
-    }
+
+    //вынесла в отдельный класс
+//    public enum RelationDegree{
+//        Children, Mother, Father, GrandMother, GrandFather, Sister, Brother, Spouse, GrandChild
+//    }
 
     public Person(String name, String surname, int birthYear) {
         this.name = name;
