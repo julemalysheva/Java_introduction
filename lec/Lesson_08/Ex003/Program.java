@@ -1,11 +1,6 @@
-package Lesson_08.Ex003;
+package lec.Lesson_08.Ex003;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Random;
-
-import Lesson_08.Ex003.alliance.*;
-import Lesson_08.Ex003.*;
+import lec.Lesson_08.Ex003.alliance.Dwarf;
 
 public class Program {
     public static void main(String[] args) {
@@ -45,27 +40,29 @@ public class Program {
         // // BaseHero hero = new BaseHero();
         // // System.out.println(hero.getInfo());
         // // ToDo BaseHero
-        // Priest priest = new Priest();
-        // System.out.println(priest.getInfo());
-        // Druid druid = new Druid();
-        // System.out.println(druid.getInfo());
-        // Magician magician = new Magician();
-        // System.out.println(magician.getInfo());
+         Priest priest = new Priest();
+         System.out.println(priest.getInfo());
+         //если слева указать тип родительский BaseHero, который не реализует конкр.логику -все начинает ломаться
+        //в таком случае при вызове дочернего метода нужно привести его к нужному типу.
+         Druid druid = new Druid();
+         System.out.println(druid.getInfo());
+         Magician magician = new Magician();
+         System.out.println(magician.getInfo());
 
-        // priest.attack(magician);
-        // System.out.println(magician.getInfo());
-        // priest.attack(magician);
-        // System.out.println(magician.getInfo());
-        // druid.healing(magician);
-        // System.out.println(magician.getInfo());
-        // druid.healing(magician);
-        // System.out.println(magician.getInfo());
-        // druid.healing(magician);
-        // System.out.println(magician.getInfo());
-        // druid.healing(magician);
-        // System.out.println(magician.getInfo());
-        // druid.healing(magician);
-        // System.out.println(magician.getInfo());
+         priest.attack(magician);
+         System.out.println(magician.getInfo());
+         priest.attack(magician);
+         System.out.println(magician.getInfo());
+        druid.healing(magician);
+         System.out.println(magician.getInfo());
+         druid.healing(magician);
+         System.out.println(magician.getInfo());
+         druid.healing(magician);
+         System.out.println(magician.getInfo());
+         druid.healing(magician);
+         System.out.println(magician.getInfo());
+         druid.healing(magician);
+         System.out.println(magician.getInfo());
 
         // #endregion
 
@@ -73,6 +70,7 @@ public class Program {
         BaseHero dh = new Druid();
         /*BaseHero*/
         Dwarf dwarf = new Dwarf();
+        //приведение к нужному типу для вызова метода
         //dwarf.dwarf_method();
         //((Dwarf)dwarf).dwarf_method();
         System.out.println(dwarf.name);

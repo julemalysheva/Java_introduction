@@ -1,4 +1,4 @@
-package Lesson_08.Ex002;
+package lec.Lesson_08.Ex002;
 
 public class Druid extends BaseHero {
     private int harmony;
@@ -13,6 +13,11 @@ public class Druid extends BaseHero {
 
     public String getInfo() {
         return String.format("%s  Harmony: %d", super.getInfo(), this.harmony);
+    }
+
+    @Override
+    public void die() {
+
     }
 
     public void healing(BaseHero target) {
