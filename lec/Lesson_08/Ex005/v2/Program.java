@@ -1,14 +1,14 @@
-package Lesson_08.Ex005.v2;
+package lec.Lesson_08.Ex005.v2;
+
+import lec.Lesson_08.Ex005.v2.Healers.Druid;
+import lec.Lesson_08.Ex005.v2.Healers.Healer;
+import lec.Lesson_08.Ex005.v2.Healers.Shaman;
+import lec.Lesson_08.Ex005.v2.Warriors.Knight;
+import lec.Lesson_08.Ex005.v2.Warriors.Paladin;
+import lec.Lesson_08.Ex005.v2.Warriors.Warrior;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Lesson_08.Ex005.v2.Healers.Druid;
-import Lesson_08.Ex005.v2.Healers.Healer;
-import Lesson_08.Ex005.v2.Healers.Shaman;
-import Lesson_08.Ex005.v2.Warriors.Knight;
-import Lesson_08.Ex005.v2.Warriors.Paladin;
-import Lesson_08.Ex005.v2.Warriors.Warrior;
 
 public class Program {
     public static void main(String[] args) {

@@ -1,9 +1,9 @@
-package Lesson_08.Ex006.Format;
+package lec.Lesson_08.Ex006.Format;
+
+import lec.Lesson_08.Ex006.Document.TextDocument;
 
 import java.io.FileWriter;
 import java.io.IOException;
-
-import Lesson_08.Ex006.Document.TextDocument;
 
 public class Txt extends TextFormat {
 

@@ -1,10 +1,10 @@
-package Lesson_08.Ex006.Applications;
+package lec.Lesson_08.Ex006.Applications;
+
+import lec.Lesson_08.Ex006.Document.TextDocument;
+import lec.Lesson_08.Ex006.Format.TextFormat;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import Lesson_08.Ex006.Document.TextDocument;
-import Lesson_08.Ex006.Format.TextFormat;
 
 public class Notepad {
     private List<TextDocument> documents;

@@ -1,8 +1,8 @@
-package Lesson_08.Ex002;
+package lec.Lesson_08.Ex002;
 
 import java.util.Random;
 
-public class BaseHero {
+public abstract class BaseHero { //если abstract - то нет возм-ти создать экз-ры этого типа
     protected static int number;
     protected static Random r;
 
@@ -39,6 +39,10 @@ public class BaseHero {
         if (this.hp - damage > 0) {
             this.hp -= damage;
         }
-        // else { die(); }
+        else { die(); } //вызвать можем здесь - прописать вызов в структуре поведения
     }
+    public abstract void die();//абстрактный метод - тело не описывается - у каждого дочернего есть метод, но
+    //конкретная реализация будет описываться в дочерних
+
+
 }

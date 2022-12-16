@@ -1,4 +1,4 @@
-package Lesson_08.Ex002;
+package lec.Lesson_08.Ex002;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -26,7 +26,7 @@ public class Program {
                     teams.add(new Druid());
                     break;
                 default:
-                    teams.add(new BaseHero());
+                    //teams.add(new BaseHero());
                     break;
             }
             System.out.println(teams.get(i).getInfo());
@@ -37,9 +37,9 @@ public class Program {
         // #endregion
         // #region
 
-        BaseHero hero = new BaseHero();
-        System.out.println(hero.getInfo());
-        Priest priest = new Priest();
+        //BaseHero hero = new BaseHero(); нельзя создавать экземпляры абстрактоного класса
+       // System.out.println(hero.getInfo());
+        Priest priest = new Priest(); //только конкретных дочерних
         System.out.println(priest.getInfo());
         Druid druid = new Druid();
         System.out.println(druid.getInfo());

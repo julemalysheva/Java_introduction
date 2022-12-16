@@ -1,6 +1,6 @@
 package lec.Lesson_08.Ex006;
 
-import Lesson_08.Ex006.Applications.Notepad;
+import lec.Lesson_08.Ex006.Applications.Notepad;
 import lec.Lesson_08.Ex006.Format.*;
 
 public class Program {
