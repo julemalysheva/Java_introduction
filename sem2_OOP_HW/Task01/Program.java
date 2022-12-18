@@ -1,9 +1,6 @@
 package sem2_OOP_HW.Task01;
 
 
-import java.util.ArrayList;
-import java.util.List;
-
 public class Program {
     public static void main(String[] args) {
         Woman person1 = new Woman("Yulia", "M.", 1983);
@@ -15,9 +12,6 @@ public class Program {
         Man person7 = new Man("Maxim", "K.", 1984);
         Woman person8 = new Woman("Sofiya", "K.", 2013);
         Woman person9 = new Woman("Venera", "K.", 1983);
-
-        List<Person> personList = new ArrayList<>(List.of(person1,person2,person3,person4,person5,person6,
-                person7,person8,person9));
 
         System.out.println(person1);
         System.out.println(person2);
@@ -43,9 +37,13 @@ public class Program {
         person8.addParent(person7);
         person8.addParent(person9);
 
-        //здесь вызвать исследование для формирования других связей на основе текущих
+        //здесь вызываем исследование для формирования других связей на основе текущих, дядя/тетя и т.п.
+        person7.addNewRelations(Person.personList);
+        person1.addNewRelations(Person.personList);
+        //метод интерфейса устанавливает grand связи
+        Research.addGrandRelations(Person.personList);
 
-        for (Person person: personList) {
+        for (Person person: Person.personList) {
             System.out.println("-------------------------");
             KinshipPrint.printChildren(person);
             System.out.println("-------------------------");

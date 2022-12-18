@@ -1,10 +1,7 @@
 package sem2_OOP_HW.Task01;
 
 
-import java.util.HashMap;
-import java.util.Map;
-import java.util.Objects;
-import java.util.Random;
+import java.util.*;
 
 public abstract class Person {
     private String name;
@@ -12,8 +9,10 @@ public abstract class Person {
     protected int birthYear, power, beauty;
     private final Map<Person, RelationDegree> communications;
     protected static Random r;
+    static List<Person> personList;
     static {
         r = new Random();
+        personList = new ArrayList<>();
     }
 
     public Person(String name, String surname, int birthYear) {
@@ -21,6 +20,7 @@ public abstract class Person {
         this.surname = surname;
         this.birthYear = birthYear;
         this.communications = new HashMap<>();
+        personList.add(this);
 //        this.beauty = r.nextInt(10,50);
 //        this.power = r.nextInt(10,50);
     }
@@ -30,10 +30,6 @@ public abstract class Person {
         return String.format("%s %s, %d года рождения, beauty = %d, power = %d",
                 this.name, this.surname, this.birthYear, this.beauty, this.power);
     }
-
-//    public int getBirthYear(){
-//        return this.birthYear;
-//    }
 
     public Map<Person, RelationDegree> getCommunications(){
         return this.communications;
@@ -46,14 +42,6 @@ public abstract class Person {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public void setSurname(String surname) {
-//        this.surname = surname;
-//    }
-//
-//    public void setBirthYear(int birthYear) {
-//        this.birthYear = birthYear;
-//    }
 
     public int getPower() {
         return power;

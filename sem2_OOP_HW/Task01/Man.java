@@ -1,6 +1,7 @@
 package sem2_OOP_HW.Task01;
 
 import java.util.List;
+import java.util.Map;
 
 public class Man extends Person implements FamilyTree, Research{
     private final String GENDER;
@@ -74,7 +75,25 @@ public class Man extends Person implements FamilyTree, Research{
     }
 
     @Override
-    public void AddNewRelations(List<Person> personList) {
-
+    public void addNewRelations(List<Person> personList) {
+        for (Person person:personList) {
+            if (!this.equals(person)){
+                if (this.getCommunications().containsKey(person) &&
+                        (this.getCommunications().get(person) == RelationDegree.Sister ||
+                                this.getCommunications().get(person) == RelationDegree.Brother)){
+                    for (Map.Entry<Person,RelationDegree> entry: person.getCommunications().entrySet()) {
+                        if (!this.getCommunications().containsKey(entry.getKey())){
+                            if (entry.getValue() == RelationDegree.Daughter){
+                                this.addCommunications(entry.getKey(), RelationDegree.Niece);//добавляем племянницу
+                                entry.getKey().addCommunications(this, RelationDegree.Uncle);//а ей дядю
+                            } else if (entry.getValue() == RelationDegree.Son) {
+                                this.addCommunications(entry.getKey(), RelationDegree.Nephew);//добавляем племянника
+                                entry.getKey().addCommunications(this, RelationDegree.Uncle);//а ему дядю
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 }
