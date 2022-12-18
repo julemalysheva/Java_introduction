@@ -43,6 +43,7 @@ public class Program {
         //метод интерфейса устанавливает grand связи
         Research.addGrandRelations(Person.personList);
 
+
         for (Person person: Person.personList) {
             System.out.println("-------------------------");
             KinshipPrint.printChildren(person);
