@@ -26,28 +26,28 @@ public class Program {
 
         //#region Worker Iterator
        
-        // Worker worker = new Worker(
-        //     "Имя", "Фамилия", 23, 4567);
+         Worker worker = new Worker(
+             "Имя", "Фамилия", 23, 4567);
 
-        // Iterator<String> components = worker;
+         Iterator<String> components = worker;
 
-        // while (components.hasNext()) {
-        //     System.out.println(worker.next());
-        // }
+         while (components.hasNext()) {
+             System.out.println(worker.next());
+         }
        
         //#endregion
        
         //#region Beverage Iterator
 
-        // Beverage latte = new Coffee();
-        // latte.addComponent(new Water("Вода"));
-        // latte.addComponent(new Вeans("Зёрна"));
-        // latte.addComponent(new Milk("Молоко"));
+         Beverage latte = new Coffee();
+         latte.addComponent(new Water("Вода"));
+         latte.addComponent(new Вeans("Зёрна"));
+         latte.addComponent(new Milk("Молоко"));
         
-        // Iterator<Ingredient> iterator = latte;
-        // while (iterator.hasNext()) {
-        //     System.out.println(iterator.next());
-        // }
+         Iterator<Ingredient> iterator = latte;
+         while (iterator.hasNext()) {
+             System.out.println(iterator.next());
+         }
 
         //#endregion
     }
