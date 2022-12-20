@@ -35,6 +35,7 @@ public class Worker2 implements Comparable<Worker2> {
             return 0;
     }
 
+    //для опр-ия равенства
     @Override
     public boolean equals(Object obj) {
         Worker2 temp = (Worker2) obj;

@@ -28,7 +28,7 @@ public class Worker3 {
     @Override
     public boolean equals(Object obj) {
         Worker3 temp = (Worker3) obj;
-
+//здесь просто ссылки
         return this.age == temp.age
                 && this.salary == temp.salary
                 && this.firstName == temp.firstName

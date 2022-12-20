@@ -25,6 +25,7 @@ public class Worker1 implements Comparable<Worker1> {
         return String.format("\n%s %d %d", fullName(), age, salary);
     }
 
+    //это нужно для сравнивания
     @Override
     public int compareTo(Worker1 o) {
         if (this.age > o.age)
