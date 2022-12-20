@@ -1,4 +1,4 @@
-package oop.lesson3.Task4;
+package sem3_OOP.lesson3.Task4;
 
 import java.util.function.BinaryOperator;
 

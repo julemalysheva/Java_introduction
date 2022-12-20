@@ -1,4 +1,4 @@
-package oop.lesson3;
+package sem3_OOP.lesson3;
 
 public class LambdaDemo {
     public static void main(String[] args) {

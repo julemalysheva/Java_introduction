@@ -1,4 +1,4 @@
-package oop.lesson3.Task3;
+package sem3_OOP.lesson3.Task3;
 
 public class Main {
     public static void main(String[] args) {

@@ -1,8 +1,6 @@
-package oop.lesson3.Task4;
+package sem3_OOP.lesson3.Task4;
 
-import java.util.Scanner;
 import java.util.function.Consumer;
-import java.util.function.Supplier;
 
 //Interface Consumer<T> {
 //    void accept(T t);
