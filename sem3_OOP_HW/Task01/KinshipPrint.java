@@ -1,13 +1,56 @@
 package sem3_OOP_HW.Task01;
 
+import java.time.LocalDate;
+import java.util.*;
+import java.util.function.Consumer;
+import java.util.function.UnaryOperator;
 
+//для отработки фабричных функц.интерфейсов данный класс дополняю методами сортировки - Comparator
 public class KinshipPrint {
+
+    public static Map<Person, RelationDegree> sortByValueComparator(
+            Map<Person, RelationDegree> unsortMap) {
+
+        List<Map.Entry<Person, RelationDegree>> list = new LinkedList<Map.Entry<Person, RelationDegree>>(
+                unsortMap.entrySet());
+
+        Collections.sort(list, new Comparator<Map.Entry<Person, RelationDegree>>() {
+            public int compare(Map.Entry<Person, RelationDegree> o1, Map.Entry<Person, RelationDegree> o2) {
+                return o1.getValue().compareTo(o2.getValue());
+            }//хочу сравнивать по порядку свзяи в enum
+        });
+
+        HashMap<Person, RelationDegree> sortedMap = new LinkedHashMap<Person, RelationDegree>();
+        for (Map.Entry<Person, RelationDegree> entry : list) {
+            sortedMap.put(entry.getKey(), entry.getValue());
+        }
+        return sortedMap;
+    }
+
+    //метод красивого вывода в консоль с применением функц.интерфейсов
+    public static void printMap(Map<Person, RelationDegree> map){
+        for (Map.Entry<Person, RelationDegree> entry: map.entrySet()) {
+            //здесь воспользовалась функц.интерфейсом для вывода возраста и пр.
+            //очевидно, такие сложности в данном примере не к чему, просто использую для отработки методов)
+            UnaryOperator<Integer> unaryOperator = (z) -> LocalDate.now().getYear()-z;
+            Consumer<Integer> consumer = x -> System.out.println(entry.getValue() + ": " + entry.getKey().getName()
+                    + " " +  x + " лет");
+            consumer.accept(unaryOperator.apply(entry.getKey().birthYear));
+        }
+    }
+
+    //в данный метод также добавила вывод возраста, рассчитываемый от года рождения в UnaryOperator
     public static void printChildren(Person person){
         System.out.println("Дети " + person + ": ");
         int count = 0;
         for (var item: person.getCommunications().entrySet()) {
             if (item.getValue().equals(RelationDegree.Son) || item.getValue().equals(RelationDegree.Daughter)){
-                System.out.println(item.getValue() + ": " + item.getKey());
+                //здесь воспользовалась функц.интерфейсом для вывода возраста и пр.
+                //очевидно, такие сложности в данном примере не к чему, просто использую для отработки методов)
+                UnaryOperator<Integer> unaryOperator = (z) -> LocalDate.now().getYear()-z;
+                Consumer<Integer> consumer = x -> System.out.println(item.getValue() + ": " + item.getKey().getName()
+                        + " " +  x + " лет");
+                consumer.accept(unaryOperator.apply(item.getKey().birthYear));
                 count++;
             }
         }
@@ -16,28 +59,6 @@ public class KinshipPrint {
 
 
     }
-//    public static void printAllRelatives(Person person){
-//        System.out.println("Для сравнения: \n" + person.getCommunications() + "\n");
-////        Map<Person, RelationDegree> keySortedMap = new TreeMap<>(person.getCommunications());
-//        Map<Person, RelationDegree> keySortedMap = new TreeMap<>(new Comparator<Person>() {
-//            @Override
-//            public int compare(Person o1, Person o2) {
-//                return switch (Integer.compare(o1.birthYear, o2.birthYear)) {
-//                    case 1, -1 -> Integer.compare(o1.birthYear, o2.birthYear);//o1.compareTo(o2);
-//                    case 0 -> o1.getName().compareTo(o2.getName());
-//                    default -> o1.compareTo(o2);
-//                };
-//                //return o1.compareTo(o2); //жду вывод в порядке убывания
-//            }
-//        });
-//        keySortedMap.putAll(person.getCommunications());
-//
-//        System.out.println("Родственные связи " + person + ": ");
-//        for (Map.Entry<Person, RelationDegree> item: keySortedMap.entrySet()) {
-//            System.out.println(item.getValue() + ": " + item.getKey());
-//        }
-//        keySortedMap.clear();
-//    }
 
     public static void printAllRelatives(Person person){
         System.out.println("Родственные связи " + person + ": ");

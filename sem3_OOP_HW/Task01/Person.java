@@ -3,44 +3,48 @@ package sem3_OOP_HW.Task01;
 
 import java.util.*;
 
-public abstract class Person implements Comparable<Person>{
-    private String name;
+public abstract class Person implements Comparable<Person>, FamilyTree{
+    protected String name;
     private String surname;
     protected int birthYear, power, beauty;
     private final Map<Person, RelationDegree> communications;
+    //в ДЗ 3 семинара добавила новую сущность RelationsTree, которая также хранит связи - делаю это для отработки итерации
+    protected RelationsTree relationsTree;
     protected static Random r;
     static List<Person> personList;
     static {
         r = new Random();
         personList = new ArrayList<>();
     }
-    //можно также сам personList выводить по году рождения
+
+
 
     public Person(String name, String surname, int birthYear) {
         this.name = name;
         this.surname = surname;
         this.birthYear = birthYear;
         //заменила на TreeMap с Comparator<Person>
+        //может создать отдельный класс List entry куда в нужной сортировке добавить записи с использованием
+        //функц.интерфейсов?
         this.communications = new TreeMap<>(new Comparator<Person>() {
             @Override
             public int compare(Person o1, Person o2) {
-                return switch (Integer.compare(o1.birthYear, o2.birthYear)) {
-                    case 1, -1 -> Integer.compare(o1.birthYear, o2.birthYear);//o1.compareTo(o2);
-                    case 0 -> o1.getName().compareTo(o2.getName());
-                    default -> o1.compareTo(o2);
-                };
-                //return o1.compareTo(o2); //жду вывод в порядке убывания
+                return (Integer.compare(o1.birthYear, o2.birthYear)) == 0 ? o1.getName().compareTo(o2.getName()) :
+                        o1.compareTo(o2);
             }
         });//ломается логика добавления нов.связей, если компоратор TreeMap проверяет только по году рождения
-        //this.communications = new HashMap<>(); так было раньше
+        //поэтому если год равен, сравниваем по имени
+//        this.communications = new HashMap<>(); //так было раньше
         personList.add(this);
+        //новому человеку создаем новую сущность для хранения связей - по типу TreeMap, но собств.типа
+        relationsTree = new RelationsTree();
     }
 
 //добавила свое переопределение compareTo для сравнения объектов
     @Override
     public int compareTo(Person o) {
-        //return this.birthYear - o.birthYear;
-        return Integer.compare(this.birthYear, o.birthYear);
+        return this.birthYear - o.birthYear;
+        //return Integer.compare(this.birthYear, o.birthYear);
     }
 
     @Override
@@ -93,5 +97,45 @@ public abstract class Person implements Comparable<Person>{
     //добавила для получения и сравнения значения в компараторе
     public String getName() {
         return name;
+    }
+
+    //методы интерфейса FamilyTree очень схожи для Man Woman - поэтому изначально определяю их в базовом классе
+   //в дочерних останутся лишь тонкости реализации
+    //добавлены условия compareTo при добавлении детей/родителей
+    //также для отработки интерфейсов добавляю связи в новую сущность RelationsTree
+    @Override
+    public void addParent(Person person) {
+        if ((!this.getCommunications().containsKey(person)) && (this.compareTo(person) > 12)){
+            if (person instanceof Man) {
+                addCommunications(person, RelationDegree.Father);
+                ((Man) person).transferPower(this);
+            }
+            else if (person instanceof Woman) {
+                addCommunications(person, RelationDegree.Mother);
+                ((Woman) person).transferBeauty(this);
+            }
+        }
+    }
+
+    @Override
+    public void addChildren(Person person) {
+        if (person instanceof Man) addCommunications(person, RelationDegree.Son);
+        else if (person instanceof Woman) addCommunications(person, RelationDegree.Daughter);
+    }
+
+    @Override
+    public void addBrotherSister(Person person) {
+        if (!this.getCommunications().containsKey(person)){
+            if (person instanceof Man) addCommunications(person, RelationDegree.Brother);
+            else if (person instanceof Woman) addCommunications(person, RelationDegree.Sister);
+        }
+    }
+
+    @Override
+    public void addSpouse(Person person) {
+        if (!this.getCommunications().containsKey(person))
+            addCommunications(person, RelationDegree.Spouse);
+        if (!person.getCommunications().containsKey(this))
+            person.addCommunications(this, RelationDegree.Spouse);
     }
 }

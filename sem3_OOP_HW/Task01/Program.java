@@ -15,17 +15,10 @@ public class Program {
         Woman person8 = new Woman("Sofiya", "K.", 2013);
         Woman person9 = new Woman("Venera", "K.", 1983);
 
-        System.out.println(person1);
-        System.out.println(person2);
-        System.out.println(person3);
-        System.out.println(person4);
         person1.addChildren(person3);
         person1.addChildren(person4);
         person2.addChildren(person3);
         person2.addChildren(person4);
-        System.out.println("----added parents----change power and beauty----");
-        System.out.println(person3);
-        System.out.println(person4);
 
         person1.addBrotherSister(person7);
         person3.addBrotherSister(person4);
@@ -38,24 +31,33 @@ public class Program {
         person5.addSpouse(person6);
         person8.addParent(person7);
         person8.addParent(person9);
+        person7.addChildren(person2);//не добавит по условию compareTo
 
 
-        //здесь вызываем исследование для формирования других связей на основе текущих, дядя/тетя и т.п.
-        person7.addNewRelations(Person.personList);
-        person1.addNewRelations(Person.personList);
-        //метод интерфейса устанавливает grand связи
+        //здесь вызываем исследование для формирования других связей на основе текущих, Uncle, Aunt, Nephew, Niece
+        Research.addNewRelations(Person.personList);
+        //метод интерфейса устанавливает grand связи: GrandMother, GrandFather, GrandDaughter, GrandSon,
         Research.addGrandRelations(Person.personList);
 
         //в абстр.класс Person имплементировала интерфейс Comparable - сортируем список по году рождения
         Collections.sort(Person.personList);
 
+        //проходим по всему отсортированному списку людей и выводим детей и полный перечень родственных связей
         for (Person person: Person.personList) {
-//            System.out.println("-------------------------");
-//            KinshipPrint.printChildren(person);
+            System.out.println("-------------------------");
+            KinshipPrint.printChildren(person);
             System.out.println("-------------------------");
             KinshipPrint.printAllRelatives(person);
         }
-
+        //вывод отсортированного Map по значению - по порядку хранения связей в enum через Comparator
+        System.out.println("""
+                
+                Сортировка по порядку хранения связей в enum через Comparator:\s
+                А также использование фабричных функциональных интерфейсов:\s
+                """);
+        System.out.println("Родственники " + person4.getName() + ": ");
+        KinshipPrint.printMap(KinshipPrint.sortByValueComparator(person4.getCommunications()));
+//сделать красивый вывод детей с возрастом и отдельно класс с компонентами связей для отработки итерации
 
     }
 }
