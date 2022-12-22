@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class RelationsTree implements Iterable<Relation>{
+public class RelationsTree implements Iterable<Relation>, Iterator<Relation>{
     public List<Relation> relations;
     int index;
 
@@ -20,7 +20,7 @@ public class RelationsTree implements Iterable<Relation>{
 
     @Override
     public Iterator<Relation> iterator() {
-        Iterator<Relation> relationIterator = new Iterator<Relation>() {
+        return new Iterator<Relation>() {
             @Override
             public boolean hasNext() {
                 return index < relations.size();
@@ -31,6 +31,15 @@ public class RelationsTree implements Iterable<Relation>{
                 return relations.get(index++);
             }
         };
-        return  relationIterator;
+    }
+
+    @Override
+    public boolean hasNext() {
+        return index < relations.size();
+    }
+
+    @Override
+    public Relation next() {
+        return relations.get(index++);
     }
 }

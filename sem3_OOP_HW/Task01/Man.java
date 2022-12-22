@@ -21,8 +21,10 @@ public class Man extends Person implements FamilyTree{
     @Override
     public void addParent(Person person) {
         super.addParent(person);
-        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) > 12))
+        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) > 12)){
             person.addCommunications(this, RelationDegree.Son);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Son));
+        }
     }
 
     @Override
@@ -31,14 +33,19 @@ public class Man extends Person implements FamilyTree{
             super.addChildren(person);
             this.transferPower(person);
         }
-        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) < -12))
+        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) < -12)){
             person.addCommunications(this,RelationDegree.Father);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Father));
+        }
     }
 
     @Override
     public void addBrotherSister(Person person) {
         super.addBrotherSister(person);
-        if (!person.getCommunications().containsKey(this)) person.addCommunications(this,RelationDegree.Brother);
+        if (!person.getCommunications().containsKey(this)) {
+            person.addCommunications(this,RelationDegree.Brother);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Brother));
+        }
         }
 
     @Override

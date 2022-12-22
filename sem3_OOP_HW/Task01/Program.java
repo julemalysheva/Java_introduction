@@ -2,6 +2,7 @@ package sem3_OOP_HW.Task01;
 
 
 import java.util.Collections;
+import java.util.Iterator;
 
 public class Program {
     public static void main(String[] args) {
@@ -57,7 +58,16 @@ public class Program {
                 """);
         System.out.println("Родственники " + person4.getName() + ": ");
         KinshipPrint.printMap(KinshipPrint.sortByValueComparator(person4.getCommunications()));
-//сделать красивый вывод детей с возрастом и отдельно класс с компонентами связей для отработки итерации
 
+    //отдельно сущности с компонентами связей для отработки итерации implements Iterable<Relation>
+        System.out.println("\nПрименение интерфейса implements Iterable<Relation> для итерации собственных типов: ");
+        for (Relation re: person1.relationsTree) {
+            System.out.println(re);
+        }
+        System.out.println("\nПрименение интерфейса implements Iterator<Relation> для итерации собственных типов: ");
+        Iterator<Relation> relationIterator = person7.relationsTree;
+        while (relationIterator.hasNext()){
+            System.out.println(relationIterator.next());
+        }
     }
 }

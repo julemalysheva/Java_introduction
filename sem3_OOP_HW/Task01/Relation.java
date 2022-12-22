@@ -18,8 +18,8 @@ public class Relation {
     @Override
     public String toString() {
         return "Relation{" +
-                "person=" + person.getName() + person.birthYear +
-                ", relationDegree=" + relationDegree +
+                "person= " + person.getName() + " " + person.birthYear + " г.р." +
+                ", kinship= " + relationDegree +
                 '}';
     }
 

@@ -24,16 +24,10 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
         this.surname = surname;
         this.birthYear = birthYear;
         //заменила на TreeMap с Comparator<Person>
-        //может создать отдельный класс List entry куда в нужной сортировке добавить записи с использованием
-        //функц.интерфейсов?
-        this.communications = new TreeMap<>(new Comparator<Person>() {
-            @Override
-            public int compare(Person o1, Person o2) {
-                return (Integer.compare(o1.birthYear, o2.birthYear)) == 0 ? o1.getName().compareTo(o2.getName()) :
-                        o1.compareTo(o2);
-            }
-        });//ломается логика добавления нов.связей, если компоратор TreeMap проверяет только по году рождения
-        //поэтому если год равен, сравниваем по имени
+        this.communications = new TreeMap<>((o1, o2) -> o1.birthYear == o2.birthYear ?
+                o1.getName().compareTo(o2.getName()) :
+                o1.compareTo(o2));//ломается логика добавления нов.связей, если компоратор TreeMap проверяет
+        // только по году рождения //поэтому если год равен, сравниваем по имени
 //        this.communications = new HashMap<>(); //так было раньше
         personList.add(this);
         //новому человеку создаем новую сущность для хранения связей - по типу TreeMap, но собств.типа
@@ -108,10 +102,12 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
         if ((!this.getCommunications().containsKey(person)) && (this.compareTo(person) > 12)){
             if (person instanceof Man) {
                 addCommunications(person, RelationDegree.Father);
+                this.relationsTree.addRelation(new Relation(person, RelationDegree.Father));
                 ((Man) person).transferPower(this);
             }
             else if (person instanceof Woman) {
                 addCommunications(person, RelationDegree.Mother);
+                this.relationsTree.addRelation(new Relation(person, RelationDegree.Mother));
                 ((Woman) person).transferBeauty(this);
             }
         }
@@ -119,23 +115,38 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
 
     @Override
     public void addChildren(Person person) {
-        if (person instanceof Man) addCommunications(person, RelationDegree.Son);
-        else if (person instanceof Woman) addCommunications(person, RelationDegree.Daughter);
+        if (person instanceof Man) {
+            addCommunications(person, RelationDegree.Son);
+            this.relationsTree.addRelation(new Relation(person, RelationDegree.Son));
+        }
+        else if (person instanceof Woman) {
+            addCommunications(person, RelationDegree.Daughter);
+            this.relationsTree.addRelation(new Relation(person, RelationDegree.Daughter));
+        }
     }
 
     @Override
     public void addBrotherSister(Person person) {
         if (!this.getCommunications().containsKey(person)){
-            if (person instanceof Man) addCommunications(person, RelationDegree.Brother);
-            else if (person instanceof Woman) addCommunications(person, RelationDegree.Sister);
+            if (person instanceof Man) {
+                addCommunications(person, RelationDegree.Brother);
+                this.relationsTree.addRelation(new Relation(person, RelationDegree.Brother));
+            }
+            else if (person instanceof Woman) {
+                addCommunications(person, RelationDegree.Sister);
+                this.relationsTree.addRelation(new Relation(person, RelationDegree.Sister));
+            }
         }
     }
 
     @Override
     public void addSpouse(Person person) {
-        if (!this.getCommunications().containsKey(person))
+        if (!this.getCommunications().containsKey(person)){
             addCommunications(person, RelationDegree.Spouse);
-        if (!person.getCommunications().containsKey(this))
+            this.relationsTree.addRelation(new Relation(person, RelationDegree.Spouse));}
+        if (!person.getCommunications().containsKey(this)){
             person.addCommunications(this, RelationDegree.Spouse);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Spouse));
+        }
     }
 }

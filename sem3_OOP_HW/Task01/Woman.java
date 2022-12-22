@@ -20,8 +20,10 @@ public class Woman extends Person implements FamilyTree{
     public void addParent(Person person) {
         super.addParent(person);
         //добавляем родителю дочь, т.к. данная логика будет вызываться из экземпляра класса Woman
-        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) > 12))
+        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) > 12)){
             person.addCommunications(this, RelationDegree.Daughter);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Daughter));
+        }
     }
 
     @Override
@@ -31,14 +33,19 @@ public class Woman extends Person implements FamilyTree{
             this.transferBeauty(person);
         }
 
-        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) < -12))
+        if ((!person.getCommunications().containsKey(this)) && (this.compareTo(person) < -12)){
             person.addCommunications(this,RelationDegree.Mother);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Mother));
+        }
     }
 
     @Override
     public void addBrotherSister(Person person) {
         super.addBrotherSister(person);
-        if (!person.getCommunications().containsKey(this)) person.addCommunications(this,RelationDegree.Sister);
+        if (!person.getCommunications().containsKey(this)) {
+            person.addCommunications(this,RelationDegree.Sister);
+            person.relationsTree.addRelation(new Relation(this, RelationDegree.Sister));
+        }
     }
 
     @Override
