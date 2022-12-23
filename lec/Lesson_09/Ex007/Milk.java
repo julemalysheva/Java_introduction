@@ -1,4 +1,4 @@
-package Lesson_09.Ex007;
+package lec.Lesson_09.Ex007;
 
 public class Milk extends Ingredient {
 

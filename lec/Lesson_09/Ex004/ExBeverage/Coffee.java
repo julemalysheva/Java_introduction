@@ -1,4 +1,4 @@
-package Lesson_09.Ex004.ExBeverage;
+package lec.Lesson_09.Ex004.ExBeverage;
 
 import java.util.Iterator;
 
