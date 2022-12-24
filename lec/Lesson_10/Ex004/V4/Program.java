@@ -19,22 +19,24 @@ public class Program {
         for (int index = 0; index < pTchaikovsky.count(); index++) {
             System.out.println(pTchaikovsky.get(index));
         }
-
+pTchaikovsky.merge(mGlinka);
         System.out.println();
         System.out.println();
         System.out.println();
 
         System.out.println(pTchaikovsky.count());
-        for (int index = 0; index < pTchaikovsky.count(); index++) {
-            System.out.println(pTchaikovsky.get(index));
+//        for (int index = 0; index < pTchaikovsky.count(); index++) {
+//            System.out.println(pTchaikovsky.get(index));
+//        }
+        for (AudioContent ac:pTchaikovsky) {
+            System.out.println(ac);
         }
+//         Repository<VideoContent> videoContent = new Repository<>("videoContent");
+//         videoContent.add(new VideoContent("ВИДЕО 1"));
+//         videoContent.add(new VideoContent("ВИДЕО 2"));
 
-        // Repository<VideoContent> videoContent = new Repository<>("videoContent");
-        // videoContent.add(new VideoContent("ВИДЕО 1"));
-        // videoContent.add(new VideoContent("ВИДЕО 2"));
-
-        //попробовать сделать
-        // pTchaikovsky.merge(videoContent);
+        //попробовать сделать - не сработает
+//         pTchaikovsky.merge(videoContent);
 
         // for (int index = 0; index < pTchaikovsky.count(); index++) {
         //     System.out.println(pTchaikovsky.get(index));

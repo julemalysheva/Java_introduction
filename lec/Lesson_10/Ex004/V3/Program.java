@@ -20,18 +20,18 @@ public class Program {
         
         //#region проблема решена
 
-        // audioStorage.add(new VideoContent("jfvjdhdf7768.mp4")); 
-        // videoStorage.add(new AudioContent("Дорожка 005.wav")); 
+//         audioStorage.add(new VideoContent("jfvjdhdf7768.mp4"));
+//         videoStorage.add(new AudioContent("Дорожка 005.wav"));
 
         //#endregion
 
         //#region  проблема решена
         //
         
-        // Repository<String> stringRepository = new Repository<>("stringRepository");
-        // stringRepository.add("Кринж");
-        // stringRepository.add("Краш");
-        // stringRepository.add("Рофл");
+//         Repository<String> stringRepository = new Repository<>("stringRepository");
+//         stringRepository.add("Кринж");
+//         stringRepository.add("Краш");
+//         stringRepository.add("Рофл");
         // stringRepository.add("Криповый");
         // stringRepository.add("Личинус");
         // stringRepository.add("Шеймить");
@@ -39,5 +39,14 @@ public class Program {
         //     System.out.println(stringRepository.get(i));
         // }
         //#endregion
+
+        // В качестве тренировки реализуйте возможность работы с foreach
+        for (VideoContent vc:videoStorage) {
+            System.out.println("foreach " + vc);
+        }
+        for (AudioContent ac:audioStorage) {
+            System.out.println("foreach " + ac);
+        }
+
     }
 }

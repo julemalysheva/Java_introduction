@@ -1,10 +1,11 @@
 package lec.Lesson_10.Ex004.V3;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 
-public class Repository<T extends Content> {
+public class Repository<T extends Content> implements Iterable<T> {
     List<T> ds;
 
     private String name;
@@ -27,6 +28,24 @@ public class Repository<T extends Content> {
         return ds.get(index);
     }
 
+
     // В качестве тренировки реализуйте возможность работы с foreach
+    @Override
+    public Iterator<T> iterator() {
+        Iterator<T> tIterator = new Iterator<T>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index<ds.size();
+            }
+
+            @Override
+            public T next() {
+                return ds.get(index++);
+            }
+        };
+        return tIterator;
+    }
 
 }
