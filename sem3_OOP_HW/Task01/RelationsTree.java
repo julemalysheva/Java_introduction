@@ -21,6 +21,8 @@ public class RelationsTree implements Iterable<Relation>, Iterator<Relation>{
     @Override
     public Iterator<Relation> iterator() {
         return new Iterator<Relation>() {
+            private int index = 0;
+
             @Override
             public boolean hasNext() {
                 return index < relations.size();
