@@ -5,7 +5,7 @@ import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.Objects;
 
-public class Task {
+public class Task implements Comparable<LocalDate>{
     private String id;
     private LocalDate dateOfAdding;
     private LocalTime timeOfAdding;
@@ -96,11 +96,30 @@ public class Task {
     public String toString() {
         return "Task{" +
                 "id='" + id + '\'' +
-                ", dateOfAdding=" + dateOfAdding +
-                ", timeOfAdding=" + timeOfAdding +
-                ", deadlineTask=" + deadlineTask +
-                ", author='" + author + '\'' +
-                ", taskDescription='" + taskDescription + '\'' +
+                ", Дата добавления=" + dateOfAdding +
+                ", Время добавления=" + timeOfAdding +
+                ", Дедлайн=" + deadlineTask +
+                ", Автор='" + author + '\'' +
+                ", Задача='" + taskDescription + '\'' +
                 '}';
     }
+
+    public String taskToStringBuilderForCsv(){
+        StringBuilder sb = new StringBuilder();
+        sb.append(id).append(',').append(dateOfAdding).append(',').append(timeOfAdding).append(',').append(deadlineTask)
+                .append(',').append(author).append(',').append(taskDescription);
+        return sb.toString();
+    }
+
+    @Override
+    public int compareTo(LocalDate date) {
+        LocalDate dateThis = LocalDate.from(this.deadlineTask);
+        if (dateThis.isAfter(date)) {
+            return 1;
+        } else if (dateThis.isBefore(date))
+            return -1;
+        else
+            return 0;
+    }
+
 }

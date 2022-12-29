@@ -1,13 +1,14 @@
 package sem4_OOP;
 
+import java.time.LocalDate;
 import java.util.Comparator;
 import java.util.TreeSet;
 
 //компонента хранения задач - можно настроить компаратор для хранения/сортировки по дедлайну
-public class TaskTree {
+public class TaskTree  {
     private static TreeSet<Task> taskTree;
 
-    static {
+    static {//множество задач сортируется по срочности
         taskTree = new TreeSet<>(Comparator.comparing(Task::getDeadlineTask));//Comparator<Task>
     }
 
@@ -26,9 +27,11 @@ public class TaskTree {
     }
 
     public static void printTask(){
-        for (Task task:taskTree) {
-            System.out.println(task);
-        }
+        if (taskTree.size()>0) {
+            for (Task task : taskTree) {
+                System.out.println(task);
+            }
+        } else System.out.println("Задачи не обнаружены");
     }
     //поиск по id для изменений
     public static Task searchById(String id){
@@ -37,4 +40,13 @@ public class TaskTree {
         }
         return null;
     }
+
+    public static void printTaskBeforeDate(LocalDate date){
+        for (Task task : taskTree) {
+            if (task.compareTo(date) <= 0)
+                System.out.println(task);
+        }
+
+    }
+
 }

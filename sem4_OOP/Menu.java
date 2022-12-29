@@ -27,9 +27,9 @@ public class Menu {
                     case 4 -> TaskTree.printTask();
                     //подумать с приоритетом
                     case 5 -> TaskTree.clearTaskTree();
-                    case 6 -> planner.saveData();
-                    case 7 -> planner.loadData();
-                    case 8 -> planner.chosenDateDeadline();
+                    case 6 -> planner.loadData();
+                    case 7 -> planner.saveData();
+                    case 8 -> planner.chosenDateDeadline();//compareTo сравнивает даты
                     case 9 -> {
                         System.out.println("Работа завершена");
                         scanner.close();
