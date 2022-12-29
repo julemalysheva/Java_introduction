@@ -7,9 +7,34 @@ import java.util.Scanner;
 
 //добавление/изменение/удаление задач - можно работать через экземпляр, например; пользовательский ввод
 public class Planner {
-    Scanner sc = new Scanner(System.in);
+    static Scanner sc = new Scanner(System.in);//добавила static
 
-//    private LocalDateTime InputDeadlineDate(){ //вспомог.метод для запроса дедлайна из строки
+    private LocalDateTime InputDeadlineDate(){ //вспомог.метод для запроса дедлайна из строки
+        boolean checkInput = false;
+        LocalDateTime deadline = null;
+        while (!checkInput) {
+            System.out.println("Введите дату дедлайна для задачи в формате:\nГГГГ-ММ-ДД" +
+                    "\nнапример, 2023-01-10 - для 10.01.2023 г. ");
+            LocalDate deadlineDate = null;
+            if (sc.hasNext()) {//hasNextLine
+                deadlineDate = LocalDate.parse(sc.next());//nextLine
+                System.out.println(deadlineDate);
+            }
+            System.out.println("Введите время дедлайна для задачи в формате ЧЧ:ММ");
+            LocalTime deadlineTime = null;
+            if (sc.hasNext()) {//hasNextLine
+                deadlineTime = LocalTime.parse(sc.next());//nextLine
+                System.out.println(deadlineTime);
+            }
+            assert deadlineDate != null;
+            assert deadlineTime != null;
+            deadline = LocalDateTime.of(deadlineDate, deadlineTime);
+            System.out.println(deadline);
+            checkInput = true;
+        }
+        return deadline;
+    }
+    public void inputTask() {//добавление задачи через пользовательский ввод
 //        boolean checkInput = false;
 //        LocalDateTime deadline = null;
 //        while (!checkInput) {
@@ -32,41 +57,16 @@ public class Planner {
 //            System.out.println(deadline);
 //            checkInput = true;
 //        }
-//        return deadline;
-//    }
-    public void inputTask() {//добавление задачи через пользовательский ввод
-        boolean checkInput = false;
-        LocalDateTime deadline = null;
-        while (!checkInput) {
-            System.out.println("Введите дату дедлайна для задачи в формате:\nГГГГ-ММ-ДД" +
-                    "\nнапример, 2023-01-10 - для 10.01.2023 г. ");
-            LocalDate deadlineDate = null;
-            if (sc.hasNextLine()) {
-                deadlineDate = LocalDate.parse(sc.nextLine());
-                System.out.println(deadlineDate);
-            }
-            System.out.println("Введите время дедлайна для задачи в формате ЧЧ:ММ");
-            LocalTime deadlineTime = null;
-            if (sc.hasNextLine()) {
-                deadlineTime = LocalTime.parse(sc.nextLine());
-                System.out.println(deadlineTime);
-            }
-            assert deadlineDate != null;
-            assert deadlineTime != null;
-            deadline = LocalDateTime.of(deadlineDate, deadlineTime);
-            System.out.println(deadline);
-            checkInput = true;
-        }
-//        LocalDateTime deadline = this.InputDeadlineDate();
+        LocalDateTime deadline = this.InputDeadlineDate();
         System.out.println("Введите ФИО автора задачи:");
         String author = null;
-        if (sc.hasNextLine()) {
-            author = sc.nextLine();
+        if (sc.hasNext()) {//   hasNext hasNextLine
+            author = sc.next();//   next nextLine
         }
         System.out.println("Введите описание задачи:");
         String description = null;
-        if (sc.hasNextLine()) {
-            description = sc.nextLine();
+        if (sc.hasNext()) {// hasNext hasNextLine
+            description = sc.next();//nextLine next
         }
         TaskTree.addTask(new Task(LocalDate.now(), LocalDateTime.now().toLocalTime(), deadline, author, description));
     }
@@ -90,33 +90,34 @@ public class Planner {
                     case 1 -> {
                         checkInput = true;
                         System.out.println("Текущее значение: " + searchTask.getDeadlineTask());
-//                        LocalDateTime deadline = this.InputDeadlineDate();
+                        LocalDateTime deadline = this.InputDeadlineDate();
                         //сначала вынесла запрос даты/времени в отд.ф-цию - сканер сбивается - прописала пока все в каждом случае
-                        System.out.println("Введите дату дедлайна для задачи в формате:\nГГГГ-ММ-ДД" +
-                                "\nнапример, 2023-01-10 - для 10.01.2023 г. ");
-                        LocalDate deadlineDate = null;
-                        if (sc.hasNext()) {//hasNextLine
-                            deadlineDate = LocalDate.parse(sc.next());//nextLine
-                            System.out.println(deadlineDate);
-                        }
-                        System.out.println("Введите время дедлайна для задачи в формате ЧЧ:ММ");
-                        LocalTime deadlineTime = null;
-                        if (sc.hasNext()) {//hasNextLine
-                            deadlineTime = LocalTime.parse(sc.next());//nextLine
-                            System.out.println(deadlineTime);
-                        }
-                        assert deadlineDate != null;
-                        assert deadlineTime != null;
+//                        System.out.println("Введите дату дедлайна для задачи в формате:\nГГГГ-ММ-ДД" +
+//                                "\nнапример, 2023-01-10 - для 10.01.2023 г. ");
+//                        LocalDate deadlineDate = null;
+//                        if (sc.hasNext()) {//hasNextLine
+//                            deadlineDate = LocalDate.parse(sc.next());//nextLine
+//                            System.out.println(deadlineDate);
+//                        }
+//                        System.out.println("Введите время дедлайна для задачи в формате ЧЧ:ММ");
+//                        LocalTime deadlineTime = null;
+//                        if (sc.hasNext()) {//hasNextLine
+//                            deadlineTime = LocalTime.parse(sc.next());//nextLine
+//                            System.out.println(deadlineTime);
+//                        }
+//                        assert deadlineDate != null;
+//                        assert deadlineTime != null;
+
 //                        deadline = LocalDateTime.of(deadlineDate, deadlineTime);
 //                        System.out.println(deadline);
-                        searchTask.setDeadlineTask(LocalDateTime.of(deadlineDate, deadlineTime));
+                        searchTask.setDeadlineTask(deadline);//LocalDateTime.of(deadlineDate, deadlineTime)
                     }
                     case 2 -> {
                         checkInput = true;
                         System.out.println("Текущее значение: " + searchTask.getTaskDescription());
                         System.out.println("Введите новое описание задачи:");
-                        if (sc.hasNext()) {//hasNextLine
-                            String description = sc.next();//nextLine
+                        if (sc.hasNext()) {//hasNextLine hasNext
+                            String description = sc.next();//nextLine next
                             searchTask.setTaskDescription(description);
                         }
                     }
