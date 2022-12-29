@@ -69,5 +69,28 @@ public class Program {
         while (relationIterator.hasNext()){
             System.out.println(relationIterator.next());
         }
+        //для отработки Обобщений создан класс GenderList
+        GenderList<Man> manList = new GenderList<Man>();
+        for (Person man: Person.personList) {
+            if (man instanceof Man) manList.add((Man) man);
+        }
+        System.out.println(manList);
+        GenderList<Woman> woman = new GenderList<>();
+        woman.add(person3);
+        woman.add(person1);
+//        woman.add(person2);не соответствует типу woman - ошибка на этапе компиляции
+        woman.add(person4);
+        woman.add(person5);
+        woman.add(person8);
+        woman.add(person9);
+        for (Woman women: woman) {
+            System.out.println(women);
+        }
+
+        System.out.println("\nРезультат применения обобщений - связь формируется по enum или по строке");
+        person1.addAnother(person9, "жена брата");
+        for (Relation<?,?> re: person1.relationsTree) {
+            System.out.println(re);
+        }
     }
 }

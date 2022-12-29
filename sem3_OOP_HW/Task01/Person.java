@@ -102,12 +102,12 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
         if ((!this.getCommunications().containsKey(person)) && (this.compareTo(person) > 12)){
             if (person instanceof Man) {
                 addCommunications(person, RelationDegree.Father);
-                this.relationsTree.addRelation(new Relation(person, RelationDegree.Father));
+                this.relationsTree.addRelation(new Relation<>(((Man) person), RelationDegree.Father));
                 ((Man) person).transferPower(this);
             }
             else if (person instanceof Woman) {
                 addCommunications(person, RelationDegree.Mother);
-                this.relationsTree.addRelation(new Relation(person, RelationDegree.Mother));
+                this.relationsTree.addRelation(new Relation<>(((Woman) person), RelationDegree.Mother));
                 ((Woman) person).transferBeauty(this);
             }
         }
@@ -117,11 +117,11 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
     public void addChildren(Person person) {
         if (person instanceof Man) {
             addCommunications(person, RelationDegree.Son);
-            this.relationsTree.addRelation(new Relation(person, RelationDegree.Son));
+            this.relationsTree.addRelation(new Relation<>(person, RelationDegree.Son));
         }
         else if (person instanceof Woman) {
             addCommunications(person, RelationDegree.Daughter);
-            this.relationsTree.addRelation(new Relation(person, RelationDegree.Daughter));
+            this.relationsTree.addRelation(new Relation<>(person, RelationDegree.Daughter));
         }
     }
 
@@ -130,11 +130,11 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
         if (!this.getCommunications().containsKey(person)){
             if (person instanceof Man) {
                 addCommunications(person, RelationDegree.Brother);
-                this.relationsTree.addRelation(new Relation(person, RelationDegree.Brother));
+                this.relationsTree.addRelation(new Relation<>(person, RelationDegree.Brother));
             }
             else if (person instanceof Woman) {
                 addCommunications(person, RelationDegree.Sister);
-                this.relationsTree.addRelation(new Relation(person, RelationDegree.Sister));
+                this.relationsTree.addRelation(new Relation<>(person, RelationDegree.Sister));
             }
         }
     }
@@ -143,10 +143,16 @@ public abstract class Person implements Comparable<Person>, FamilyTree{
     public void addSpouse(Person person) {
         if (!this.getCommunications().containsKey(person)){
             addCommunications(person, RelationDegree.Spouse);
-            this.relationsTree.addRelation(new Relation(person, RelationDegree.Spouse));}
+            this.relationsTree.addRelation(new Relation<>(person, RelationDegree.Spouse));}
         if (!person.getCommunications().containsKey(this)){
             person.addCommunications(this, RelationDegree.Spouse);
-            person.relationsTree.addRelation(new Relation(this, RelationDegree.Spouse));
+            person.relationsTree.addRelation(new Relation<>(this, RelationDegree.Spouse));
         }
+    }
+    //метод добавлен по ДЗ 4 семинара для отработки обобщений
+    public void addAnother(Person person, String relation){
+        if (!this.getCommunications().containsKey(person)){
+            //здесь в качестве связи принимается строка, а не заданная константа
+            this.relationsTree.addRelation(new Relation<>(person, relation));}
     }
 }

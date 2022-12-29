@@ -56,3 +56,23 @@ RelationsTree.
   очевидно, такие сложности в данном примере не к чему, просто использую для отработки методов)))
 - https://skr.sh/sHWK0Gbxbi2 скринкаст работы методов
 
+## Урок 4. ООП: Обобщения. ч1
+
+Обязательная задача:
+Реализовать в проекте 2 обобщения.
+
+1. Класс создан с целью отработки обобщений в рамках ДЗ семинара 4 по ООП
+public class GenderList\<T extends Person> implements Iterable<T>{
+
+- формирует отдельно списки типа Man и Woman
+
+2. В класс добавлены обобщения:
+ 
+class Relation<T extends Person,V  > {
+   T person;
+   V relationDegree;
+
+Добавлен метод public void addAnother(Person person, String relation), который устанавливает 
+произвольную связь из строки, а не только по заданным константам.
+
+
