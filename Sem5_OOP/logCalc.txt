@@ -1,0 +1,48 @@
+янв. 17, 2023 1:15:20 AM Sem5_OOP.Logger.MyLog log
+INFO: Выбран пункт меню: 1 - операции с рац.числами 
+янв. 17, 2023 1:15:22 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите число:  - 25.0
+янв. 17, 2023 1:15:25 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите операцию (+,-,*,/):  - +
+янв. 17, 2023 1:15:31 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите число:  - 4.25
+янв. 17, 2023 1:15:31 AM Sem5_OOP.Logger.MyLog log
+INFO: Выдан результат 25.0 + 4.25 =  29.25
+янв. 17, 2023 1:15:43 AM Sem5_OOP.Logger.MyLog log
+INFO: 2 - операции с комплекс.числами
+янв. 17, 2023 1:15:46 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите реальную часть компл.числа:  - 2.5
+янв. 17, 2023 1:15:47 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите мнимую часть компл.числа:  - 4.0
+янв. 17, 2023 1:15:50 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите операцию (+,-,*,/):  - 2
+янв. 17, 2023 1:15:53 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите реальную часть компл.числа:  - 4.85
+янв. 17, 2023 1:15:57 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите мнимую часть компл.числа:  - 5.65
+янв. 17, 2023 1:15:57 AM Sem5_OOP.Logger.MyLog log
+INFO: Выдан результат 2.5 + 4.0i 2 4.85 + 5.65i =  null
+янв. 17, 2023 1:16:06 AM Sem5_OOP.Logger.MyLog log
+INFO: 2 - операции с комплекс.числами
+янв. 17, 2023 1:16:08 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите реальную часть компл.числа:  - 25.0
+янв. 17, 2023 1:16:11 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите мнимую часть компл.числа:  - 1.25
+янв. 17, 2023 1:16:13 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите операцию (+,-,*,/):  - *
+янв. 17, 2023 1:16:15 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите реальную часть компл.числа:  - 0.45
+янв. 17, 2023 1:16:18 AM Sem5_OOP.Logger.MyLog log
+INFO: Введите мнимую часть компл.числа:  - 6.45
+янв. 17, 2023 1:16:18 AM Sem5_OOP.Logger.MyLog log
+INFO: Выдан результат 25.0 + 1.25i * 0.45 + 6.45i =  3.1875 + 161.8125i
+янв. 17, 2023 1:16:25 AM Sem5_OOP.Logger.MyLog log
+INFO: Выбран некорректный пункт меню. Повторите ввод
+янв. 17, 2023 1:16:27 AM Sem5_OOP.Logger.MyLog log
+INFO: 4 - выход из программы
+янв. 17, 2023 1:25:15 AM Sem5_OOP.Logger.MyLog log
+INFO: 3 - посмотреть лог файл
+янв. 17, 2023 1:25:15 AM Sem5_OOP.Logger.MyLog log
+INFO: sem5_OOP\logCalc.txt - выдано содержание файла логирования по запросу
+янв. 17, 2023 1:25:36 AM Sem5_OOP.Logger.MyLog log
+INFO: 4 - выход из программы
