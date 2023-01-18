@@ -1,4 +1,4 @@
-public interface Payments1 {
+/*public interface Payments1 {
     void payWebMoney();
 }
 public interface Payments2 {
@@ -43,4 +43,4 @@ public class terminalPaymentService implements Payments1, Payments2{
         // TODO Auto-generated method stub
         
     }
-}
+}*/

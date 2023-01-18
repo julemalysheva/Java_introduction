@@ -1,4 +1,4 @@
-package Sem6_OOP.task1;
+/*package Sem6_OOP.task1;
 public class viber implements NotificationService{
 
     @Override
@@ -7,4 +7,4 @@ public class viber implements NotificationService{
         
     }
     
-}
+}*/

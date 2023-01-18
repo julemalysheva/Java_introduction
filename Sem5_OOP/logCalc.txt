@@ -46,3 +46,7 @@ INFO: 3 - посмотреть лог файл
 INFO: sem5_OOP\logCalc.txt - выдано содержание файла логирования по запросу
 янв. 17, 2023 1:25:36 AM Sem5_OOP.Logger.MyLog log
 INFO: 4 - выход из программы
+янв. 18, 2023 7:04:51 PM Sem5_OOP.Logger.MyLog log
+INFO: 3 - посмотреть лог файл
+янв. 18, 2023 7:04:51 PM Sem5_OOP.Logger.MyLog log
+INFO: sem5_OOP\logCalc.txt - выдано содержание файла логирования по запросу

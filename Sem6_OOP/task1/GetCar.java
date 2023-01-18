@@ -1,4 +1,4 @@
-package Sem6_OOP.task1;
+/*package Sem6_OOP.task1;
 public class GetCar {
     public void getCarInterestInfo(String carType) {
         if (carType.equals("sedan")) {
@@ -12,3 +12,4 @@ public class GetCar {
         }
     }
 }
+*/

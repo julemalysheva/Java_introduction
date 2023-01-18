@@ -1,4 +1,4 @@
-package Sem6_OOP.task1;
+/*package Sem6_OOP.task1;
 public class mail implements NotificationService{
 
     @Override
@@ -8,3 +8,4 @@ public class mail implements NotificationService{
     }
     
 }
+*/
