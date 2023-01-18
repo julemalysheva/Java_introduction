@@ -1,5 +1,7 @@
 package lec.Lesson_12;
-
+// Модули высокого уровня не должны зависеть от модулей нижнего уровня.
+//   И те, и другие должны зависеть от абстракций.
+// Абстракции не должны зависеть от деталей. Детали должны зависеть от абстракци
 public class Ex005_1DIP {
     public static void main(String[] args) {
         Book book = new Book();
@@ -18,17 +20,14 @@ class ConsoleView implements View {
         System.out.println(result);
     }
 }
-
 class WinFormView implements View {
     public void print(String text) {
         String result = String.format("WinFormView %s", text);
         System.out.println(result);
     }
 }
-
 class Book {
     View view;
-
     int indexPage;
 
     public Book() {
