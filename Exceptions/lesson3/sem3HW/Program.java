@@ -19,12 +19,13 @@ public class Program {
                 throw new IllegalArgumentException("Неверное количество данных");
             }
 
-            String lastName = data[0];
-            String firstName = data[1];
-            String middleName = data[2];
+            String lastName = checkValidName(data[0]);
+            String firstName = checkValidName(data[1]);
+            String middleName = checkValidName(data[2]);
             String birthDate = data[3];
             String phoneNumber = data[4];
             String gender = data[5];
+
 
             if (!isValidDate(birthDate)) {
                 throw new IllegalArgumentException("Неверный формат даты рождения");
@@ -37,7 +38,8 @@ public class Program {
             }
 
             String fileName = lastName + ".txt";
-            BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(
+                    "A:\\GB\\Java\\Java_introduction\\Exceptions\\lesson3\\sem3HW\\" + fileName, true));
             writer.append(lastName).append(firstName).append(middleName)
                     .append(birthDate).append(" ").append(String.valueOf(phone))
                     .append(gender).append(System.lineSeparator());
@@ -48,6 +50,16 @@ public class Program {
             e.printStackTrace();
         }
     }
+
+
+    private static String checkValidName(String name){
+        if (name == null || !name.matches("[А-Яа-яЁё]+")) {
+            throw new IllegalArgumentException("Недопустимые символы в ФИО: " + name);
+        }
+
+        return name;
+    }
+
 
     private static boolean isValidDate(String date) {
         // Проверка формата даты
